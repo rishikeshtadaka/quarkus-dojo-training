@@ -13,3 +13,5 @@ public class GenericErrorHandling implements ExceptionMapper<Exception> {
         return Response.status(Response.Status.BAD_REQUEST).entity("Generic:Something went wrong").build();
     }
 }
+
+

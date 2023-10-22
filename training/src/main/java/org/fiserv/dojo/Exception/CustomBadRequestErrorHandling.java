@@ -12,3 +12,4 @@ public class CustomBadRequestErrorHandling implements ExceptionMapper<CustomBadR
         return Response.status(Response.Status.BAD_REQUEST).entity("Custom Bad Request").build();
     }
 }
+
