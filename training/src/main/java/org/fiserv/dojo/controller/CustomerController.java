@@ -11,6 +11,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.fiserv.dojo.Exception.CustomBadRequestException;
 import org.fiserv.dojo.domain.Customer;
 import org.fiserv.dojo.dto.CustomerDto;
 import org.fiserv.dojo.service.CustomerService;
@@ -78,7 +79,7 @@ public class CustomerController {
         log.info("Updating new Customer");
         Optional<Customer> customer=this.customerService.getById(id);
         if(customer.isEmpty())
-            return Response.status(Response.Status.NO_CONTENT).build();
+            throw new CustomBadRequestException();
         customer.get().FirstName =customerDto.getFirstName();
         customer.get().LastName=customerDto.getLastName();
         customer.get().Address=customerDto.getAddress();
