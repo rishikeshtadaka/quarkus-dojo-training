@@ -12,10 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-public class Customer extends PanacheEntityBase {
-    @Id
-    @GeneratedValue
-    public Long Id;
+public class Customer extends PanacheEntity {
     public String FirstName;
     public String LastName;
     public String Address;

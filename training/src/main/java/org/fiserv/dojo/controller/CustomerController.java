@@ -39,6 +39,6 @@ public class CustomerController {
         customer.LastName=customerDto.getLastName();
         customer.Address=customerDto.getAddress();
         Customer.persist(customer);
-        return Response.status(Response.Status.CREATED).entity(new CustomerDto()).build();
+        return Response.status(Response.Status.CREATED).entity(customer).build();
     }
 }
