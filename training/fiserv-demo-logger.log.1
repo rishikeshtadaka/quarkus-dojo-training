@@ -1,4 +1,4 @@
-2023-10-22 16:00:55,197 mbnxcv25l343483 training-dev.jar[4108] WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (JPA Startup Thread) GenerationTarget encountered exception accepting command : Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]
+2023-10-22 17:16:42,353 mbnxcv25l343483 training-dev.jar[24828] WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (JPA Startup Thread) GenerationTarget encountered exception accepting command : Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92)
 	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:235)
 	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:257)
@@ -41,22 +41,10 @@ insert into customer ( id,firstName,lastName,address) values(nextval('customerId
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:78)
 	... 21 more
 
-2023-10-22 16:00:55,203 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.quarkus] (Quarkus Main Thread) training 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.4.3) started in 0.472s. Listening on: http://localhost:8080
-2023-10-22 16:00:55,204 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2023-10-22 16:00:55,204 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, narayana-jta, resteasy, resteasy-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
-2023-10-22 16:00:55,205 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Live reload total time: 0.866s 
-2023-10-22 16:00:55,210 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Creating TestCDIController
-2023-10-22 16:00:55,210 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestApplicationScoped] (executor-thread-1) Creating TestApplicationScoped
-2023-10-22 16:00:55,211 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 16:00:55,211 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 16:00:55,212 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 16:00:55,212 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestSingletonScoped] (executor-thread-1) Creating TestSingletonScoped
-2023-10-22 16:00:55,213 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 16:00:55,213 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestApplicationScoped] (executor-thread-1) Creating TestApplicationScoped
-2023-10-22 16:00:55,214 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 16:01:05,711 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 16:01:05,711 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 16:01:51,127 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 16:01:51,127 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 16:03:05,870 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Restarting quarkus due to changes in TestCDIController.class.
-2023-10-22 16:03:05,885 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.quarkus] (Quarkus Main Thread) training stopped in 0.015s
+2023-10-22 17:16:42,363 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.quarkus] (Quarkus Main Thread) training 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.4.3) started in 0.837s. Listening on: http://localhost:8080
+2023-10-22 17:16:42,364 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2023-10-22 17:16:42,365 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, narayana-jta, resteasy, resteasy-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2023-10-22 17:16:42,366 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Live reload total time: 1.749s 
+2023-10-22 17:16:49,753 mbnxcv25l343483 training-dev.jar[24828] INFO  [org.fis.doj.con.CustomerController] (executor-thread-1) Creating new Customer
+2023-10-22 17:22:26,487 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Restarting quarkus due to changes in CustomerController.class.
+2023-10-22 17:22:26,517 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.quarkus] (Quarkus Main Thread) training stopped in 0.029s

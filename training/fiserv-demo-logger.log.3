@@ -1,4 +1,4 @@
-2023-10-22 15:53:35,242 mbnxcv25l343483 training-dev.jar[4108] WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (JPA Startup Thread) GenerationTarget encountered exception accepting command : Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]
+2023-10-22 17:01:05,538 mbnxcv25l343483 training-dev.jar[24828] WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (JPA Startup Thread) GenerationTarget encountered exception accepting command : Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92)
 	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:235)
 	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:257)
@@ -41,57 +41,9 @@ insert into customer ( id,firstName,lastName,address) values(nextval('customerId
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:78)
 	... 21 more
 
-2023-10-22 15:53:35,249 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.quarkus] (Quarkus Main Thread) training 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.4.3) started in 0.608s. Listening on: http://localhost:8080
-2023-10-22 15:53:35,250 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2023-10-22 15:53:35,250 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, narayana-jta, resteasy, resteasy-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
-2023-10-22 15:53:35,250 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Live reload total time: 1.016s 
-2023-10-22 15:53:35,255 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestApplicationScoped] (executor-thread-1) Creating TestApplicationScoped
-2023-10-22 15:53:35,256 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:35,256 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 15:53:35,257 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:35,257 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestSingletonScoped] (executor-thread-1) Creating TestSingletonScoped
-2023-10-22 15:53:35,258 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 15:53:35,258 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestApplicationScoped] (executor-thread-1) Creating TestApplicationScoped
-2023-10-22 15:53:35,258 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 15:53:37,349 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:37,349 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:37,349 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 15:53:37,356 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 15:53:38,420 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:38,422 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:38,423 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 15:53:38,424 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 15:53:39,278 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:39,278 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:39,280 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 15:53:39,280 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 15:53:40,052 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:40,052 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:40,052 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 15:53:40,052 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 15:53:40,389 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:40,392 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:40,393 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 15:53:40,394 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 15:53:40,707 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:40,708 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:40,709 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 15:53:40,711 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 15:53:41,061 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:41,064 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:41,064 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 15:53:41,065 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 15:53:41,492 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:41,492 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:41,497 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 15:53:41,497 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 15:53:45,127 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:45,128 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:45,129 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 15:53:45,129 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 15:53:54,237 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:54,237 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestDependentScoped] (executor-thread-1) Creating TestDependentScoped
-2023-10-22 15:53:54,239 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.con.TestCDIController] (executor-thread-1) Before invoking counter method
-2023-10-22 15:53:54,239 mbnxcv25l343483 training-dev.jar[4108] INFO  [org.fis.doj.cdi.TestRequestScoped] (executor-thread-1) Creating TestRequestScoped
-2023-10-22 16:00:15,287 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Restarting quarkus due to changes in TestCDIController.class.
-2023-10-22 16:00:15,308 mbnxcv25l343483 training-dev.jar[4108] INFO  [io.quarkus] (Quarkus Main Thread) training stopped in 0.020s
+2023-10-22 17:01:05,549 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.quarkus] (Quarkus Main Thread) training 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.4.3) started in 0.820s. Listening on: http://localhost:8080
+2023-10-22 17:01:05,550 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2023-10-22 17:01:05,551 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, narayana-jta, resteasy, resteasy-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2023-10-22 17:01:05,552 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Live reload total time: 1.454s 
+2023-10-22 17:05:18,502 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Restarting quarkus due to changes in CustomerController.class.
+2023-10-22 17:05:18,523 mbnxcv25l343483 training-dev.jar[24828] INFO  [io.quarkus] (Quarkus Main Thread) training stopped in 0.020s

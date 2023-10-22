@@ -14,16 +14,19 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.fiserv.dojo.domain.Customer;
 import org.fiserv.dojo.dto.CustomerDto;
 import org.fiserv.dojo.service.CustomerService;
+import org.fiserv.dojo.service.ICustomerService;
 import org.jboss.logging.Logger;
 
+import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @Path("/customers")
-@Tag(name="Customers", description = "Get all customers")
+@Tag(name="Customers", description = "Customer operations")
 public class CustomerController {
     private static final Logger log = Logger.getLogger(CustomerController.class);
     @Inject
-    private CustomerService customerService;
+    private ICustomerService customerService;
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Get Customer", description = "Get All Customers list")
@@ -31,6 +34,18 @@ public class CustomerController {
     public Response GetAllCustomers(){
         List<Customer> list=this.customerService.getAll();
         return Response.ok(list).build();
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Get Customer", description = "Get customer by id")
+    @APIResponse(responseCode = "200",description = "Successfully returned", content = @Content(mediaType = MediaType.APPLICATION_JSON))
+    public Response GetCustomerById(@PathParam("id") Long id){
+        Optional<Customer> customer=this.customerService.getById(id);
+        if(customer.isEmpty())
+            return Response.noContent().build();
+        return Response.ok(customer).build();
     }
 
     @POST
@@ -45,7 +60,43 @@ public class CustomerController {
         customer.FirstName=customerDto.getFirstName();
         customer.LastName=customerDto.getLastName();
         customer.Address=customerDto.getAddress();
-        Customer.persist(customer);
-        return Response.status(Response.Status.CREATED).entity(customer).build();
+        this.customerService.add(customer);
+        if(customer.isPersistent())
+            return Response.created(URI.create("/customers"+customer.id)).build();
+        return Response.status(Response.Status.BAD_REQUEST).build();
+    }
+
+    @PUT
+    @Path("{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response UpdateCustomer(
+            @RequestBody(description = "Update a customer",required = true,content = @Content(schema=@Schema(implementation = CustomerDto.class)))
+            CustomerDto customerDto,
+            @PathParam("id") Long id){
+        log.info("Updating new Customer");
+        Optional<Customer> customer=this.customerService.getById(id);
+        if(customer.isEmpty())
+            return Response.status(Response.Status.NO_CONTENT).build();
+        customer.get().FirstName =customerDto.getFirstName();
+        customer.get().LastName=customerDto.getLastName();
+        customer.get().Address=customerDto.getAddress();
+        this.customerService.update(customer.get());
+        return Response.status(Response.Status.OK).entity(customer).build();
+    }
+
+    @DELETE
+    @Path("{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response DeleteCustomer(
+            @PathParam("id") Long id){
+        log.info("Deleting Customer");
+        boolean isDeleted=this.customerService.delete(id);
+        if(isDeleted)
+            return Response.status(Response.Status.OK).build();
+        return Response.status(Response.Status.NO_CONTENT).build();
     }
 }
