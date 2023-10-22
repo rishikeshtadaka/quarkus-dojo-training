@@ -1,0 +1,48 @@
+2023-10-22 13:29:37,909 mbnxcv25l343483 training-dev.jar[20240] WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (JPA Startup Thread) GenerationTarget encountered exception accepting command : Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:235)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:257)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:650)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:569)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:254)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:143)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1337)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140)
+	at io.quarkus.hibernate.orm.runtime.observers.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:21)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:293)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:84)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:74)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:156)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$1.run(JPAConfig.java:64)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Sequence "CUSTOMERIDSEQUENCE" not found; SQL statement:
+insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr') -- (NEXTVAL('customerIdSequence'), 'fn-1', 'ln-1', 'addr') [90036-220]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.schema.Schema.getSequence(Schema.java:671)
+	at org.h2.expression.function.CompatibilitySequenceValueFunction.getValue(CompatibilitySequenceValueFunction.java:65)
+	at org.h2.expression.function.Function1_2.getValue(Function1_2.java:39)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:160)
+	at org.h2.command.dml.Insert.update(Insert.java:135)
+	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:235)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:78)
+	... 21 more
+
+2023-10-22 13:29:38,227 mbnxcv25l343483 training-dev.jar[20240] INFO  [io.quarkus] (Quarkus Main Thread) training 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.4.3) started in 3.949s. Listening on: http://localhost:8080
+2023-10-22 13:29:38,276 mbnxcv25l343483 training-dev.jar[20240] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2023-10-22 13:29:38,278 mbnxcv25l343483 training-dev.jar[20240] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, narayana-jta, resteasy, resteasy-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2023-10-22 13:36:31,268 mbnxcv25l343483 training-dev.jar[20240] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Restarting quarkus due to changes in ICustomerService.class, CustomerService.class, CustomerController.class.
+2023-10-22 13:36:31,530 mbnxcv25l343483 training-dev.jar[20240] INFO  [io.quarkus] (Quarkus Main Thread) training stopped in 0.261s
