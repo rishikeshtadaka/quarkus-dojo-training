@@ -19,9 +19,9 @@ public class TestCustomerController {
                 .when()
                 .get("/customers")
                 .then()
-                .body("size()",equalTo(1))
-                .body("id",hasItems(1))
-                .body("firstName",hasItems("fn-1"))
+                .body("size()",equalTo(2))
+                .body("id",hasItems(1,2))
+                .body("firstName",hasItems("fn-1","fn-2"))
                 .statusCode(Response.Status.OK.getStatusCode());
     }
 
