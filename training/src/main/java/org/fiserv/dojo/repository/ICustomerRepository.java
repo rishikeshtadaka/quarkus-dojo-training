@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface ICustomerRepository {
     List<Customer> findByFirstName(String firstName);
+    List<Customer> getAll();
     void add(Customer customer);
     void update(Customer customer);
     boolean delete(Long id);

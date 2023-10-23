@@ -33,4 +33,10 @@ public class CustomerRepository implements PanacheRepository<Customer>, ICustome
         return findByIdOptional(id);
     }
 
+    @Override
+    public List<Customer> getAll(){
+        return listAll();
+    }
+
+
 }

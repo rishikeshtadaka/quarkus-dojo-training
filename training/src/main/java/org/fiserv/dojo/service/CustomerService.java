@@ -6,6 +6,7 @@ import org.fiserv.dojo.Exception.CustomBadRequestException;
 import org.fiserv.dojo.domain.Customer;
 import org.fiserv.dojo.dto.CustomerDto;
 import org.fiserv.dojo.repository.CustomerRepository;
+import org.fiserv.dojo.repository.ICustomerRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,13 +14,13 @@ import java.util.Optional;
 @ApplicationScoped
 public class CustomerService implements ICustomerService {
     @Inject
-    CustomerRepository customerRepository;
+    ICustomerRepository customerRepository;
     public List<Customer> findByFirstName(String firstName){
         return customerRepository.findByFirstName(firstName);
     }
 
     public List<Customer> getAll(){
-        return customerRepository.listAll();
+        return customerRepository.getAll();
     }
 
     @Override
@@ -53,6 +54,6 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public Optional<Customer> getById(Long id){
-        return this.customerRepository.findByIdOptional(id);
+        return this.customerRepository.getById(id);
     }
 }
