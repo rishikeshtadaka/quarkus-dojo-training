@@ -1,56 +1,14 @@
-2023-10-22 18:59:27,762 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[2124] WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (JPA Startup Thread) GenerationTarget encountered exception accepting command : Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr')" via JDBC [Sequence "CUSTOMERIDSEQUENCE" not found;]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92)
-	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:235)
-	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:257)
-	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:650)
-	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:569)
-	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
-	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
-	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:254)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:143)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1337)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140)
-	at io.quarkus.hibernate.orm.runtime.observers.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:21)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:293)
-	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:84)
-	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:74)
-	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
-	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
-	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:156)
-	at io.quarkus.hibernate.orm.runtime.JPAConfig$1.run(JPAConfig.java:64)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Sequence "CUSTOMERIDSEQUENCE" not found; SQL statement:
-insert into customer ( id,firstName,lastName,address) values(nextval('customerIdSequence'),'fn-1','ln-1','addr') -- (NEXTVAL('customerIdSequence'), 'fn-1', 'ln-1', 'addr') [90036-220]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.schema.Schema.getSequence(Schema.java:671)
-	at org.h2.expression.function.CompatibilitySequenceValueFunction.getValue(CompatibilitySequenceValueFunction.java:65)
-	at org.h2.expression.function.Function1_2.getValue(Function1_2.java:39)
-	at org.h2.command.dml.Insert.insertRows(Insert.java:160)
-	at org.h2.command.dml.Insert.update(Insert.java:135)
-	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
-	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
-	at org.h2.command.Command.executeUpdate(Command.java:252)
-	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
-	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
-	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:235)
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:78)
-	... 21 more
-
-2023-10-22 18:59:28,133 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[2124] INFO  [io.quarkus] (Quarkus Main Thread) training 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.4.3) started in 6.046s. Listening on: http://localhost:8080
-2023-10-22 18:59:28,134 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[2124] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2023-10-22 18:59:28,135 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[2124] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, narayana-jta, resteasy, resteasy-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
-2023-10-22 18:59:53,456 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[2124] INFO  [org.fis.doj.con.CustomerController] (executor-thread-1) Creating new Customer
-2023-10-22 18:59:53,554 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[2124] WARN  [org.hib.eng.jdb.spi.SqlExceptionHelper] (executor-thread-1) SQL Error: 22001, SQLState: 22001
-2023-10-22 18:59:53,554 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[2124] ERROR [org.hib.eng.jdb.spi.SqlExceptionHelper] (executor-thread-1) Value too long for column "FIRSTNAME CHARACTER VARYING(100)": "'fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2f... (504)"; SQL statement:
-insert into Customer (Address,FirstName,LastName,id) values (?,?,?,?) [22001-220]
-2023-10-22 18:59:53,571 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[2124] WARN  [com.arj.ats.arjuna] (executor-thread-1) ARJUNA012125: TwoPhaseCoordinator.beforeCompletion - failed for SynchronizationImple< 0:ffffc0a83729:d0b6:653523d1:1, org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization@7055ea93 >: org.hibernate.exception.DataException: could not execute statement [Value too long for column "FIRSTNAME CHARACTER VARYING(100)": "'fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2f... (504)"; SQL statement:
-insert into Customer (Address,FirstName,LastName,id) values (?,?,?,?) [22001-220]] [insert into Customer (Address,FirstName,LastName,id) values (?,?,?,?)]
-	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:53)
+2023-10-23 01:03:22,721 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[21076] INFO  [io.quarkus] (Quarkus Main Thread) training 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.4.3) started in 1.138s. Listening on: http://localhost:8080
+2023-10-23 01:03:22,723 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[21076] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2023-10-23 01:03:22,724 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[21076] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, narayana-jta, resteasy, resteasy-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2023-10-23 01:03:22,725 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[21076] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Live reload total time: 1.195s 
+2023-10-23 01:03:40,410 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[21076] INFO  [org.fis.doj.con.CustomerController] (executor-thread-1) Creating new Customer
+2023-10-23 01:03:40,493 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[21076] WARN  [org.hib.eng.jdb.spi.SqlExceptionHelper] (executor-thread-1) SQL Error: 23505, SQLState: 23505
+2023-10-23 01:03:40,494 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[21076] ERROR [org.hib.eng.jdb.spi.SqlExceptionHelper] (executor-thread-1) Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.CUSTOMER(ID) ( /* key:1 */ CAST(1 AS BIGINT), 'fn-1', 'ln-1', 'addr')"; SQL statement:
+insert into Customer (Address,FirstName,LastName,id) values (?,?,?,?) [23505-220]
+2023-10-23 01:03:40,507 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[21076] WARN  [com.arj.ats.arjuna] (executor-thread-1) ARJUNA012125: TwoPhaseCoordinator.beforeCompletion - failed for SynchronizationImple< 0:ffffc0a83729:ce4a:65357914:1, org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization@6f83281e >: org.hibernate.exception.ConstraintViolationException: could not execute statement [Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.CUSTOMER(ID) ( /* key:1 */ CAST(1 AS BIGINT), 'fn-1', 'ln-1', 'addr')"; SQL statement:
+insert into Customer (Address,FirstName,LastName,id) values (?,?,?,?) [23505-220]] [insert into Customer (Address,FirstName,LastName,id) values (?,?,?,?)]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:60)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:56)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:278)
@@ -122,19 +80,15 @@ insert into Customer (Address,FirstName,LastName,id) values (?,?,?,?) [22001-220
 	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:29)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: org.h2.jdbc.JdbcSQLDataException: Value too long for column "FIRSTNAME CHARACTER VARYING(100)": "'fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2fn2f... (504)"; SQL statement:
-insert into Customer (Address,FirstName,LastName,id) values (?,?,?,?) [22001-220]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:518)
+Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.CUSTOMER(ID) ( /* key:1 */ CAST(1 AS BIGINT), 'fn-1', 'ln-1', 'addr')"; SQL statement:
+insert into Customer (Address,FirstName,LastName,id) values (?,?,?,?) [23505-220]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:520)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.getValueTooLongException(DbException.java:334)
-	at org.h2.value.Value.getValueTooLongException(Value.java:2594)
-	at org.h2.value.Value.convertToVarchar(Value.java:1282)
-	at org.h2.value.Value.convertTo(Value.java:1138)
-	at org.h2.value.Value.convertForAssignTo(Value.java:1113)
-	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:369)
-	at org.h2.table.Table.convertInsertRow(Table.java:936)
-	at org.h2.command.dml.Insert.insertRows(Insert.java:167)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:120)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:519)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:174)
 	at org.h2.command.dml.Insert.update(Insert.java:135)
 	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
 	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
@@ -145,4 +99,5 @@ insert into Customer (Address,FirstName,LastName,id) values (?,?,?,?) [22001-220
 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:275)
 	... 68 more
 
-2023-10-22 19:00:08,441 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[2124] INFO  [io.quarkus] (Quarkus Main Thread) training stopped in 0.141s
+2023-10-23 01:03:43,041 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[21076] INFO  [org.fis.doj.con.CustomerController] (executor-thread-1) Creating new Customer
+2023-10-23 01:04:34,459 mbnxcv25l343483 org.fiserv.dojo.application.ApplicationMain[21076] INFO  [io.quarkus] (Shutdown thread) training stopped in 0.024s
