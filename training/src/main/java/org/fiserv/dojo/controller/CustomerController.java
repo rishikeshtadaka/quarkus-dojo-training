@@ -3,6 +3,7 @@ package org.fiserv.dojo.controller;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Valid;
 import jakarta.validation.Validator;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -81,6 +82,7 @@ public class CustomerController {
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
     public Response UpdateCustomer(
+            @Valid
             @RequestBody(description = "Update a customer",required = true,content = @Content(schema=@Schema(implementation = CustomerDto.class)))
             CustomerDto customerDto,
             @PathParam("id") Long id){

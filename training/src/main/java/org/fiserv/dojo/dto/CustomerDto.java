@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CustomerDto {
-    @NotBlank(message = "Fistname should not be blank")
+    @NotBlank(message = "Firstname should not be blank")
     private String FirstName;
     private String LastName;
     private String Address;
