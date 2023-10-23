@@ -4,6 +4,7 @@ import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import org.fiserv.dojo.domain.Customer;
+import org.fiserv.dojo.dto.CustomerDto;
 import org.fiserv.dojo.repository.ICustomerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,7 +39,7 @@ public class TestCustomerService {
 
     @Test
     public void getAll(){
-        List<Customer> listOutput=this.customerService.getAll();
+        List<CustomerDto> listOutput=this.customerService.getAll();
         assertEquals(1, listOutput.size());
     }
 

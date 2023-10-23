@@ -41,7 +41,7 @@ public class CustomerController {
     @Operation(summary = "Get Customer", description = "Get All Customers list")
     @APIResponse(responseCode = "200",description = "Successfully returned", content = @Content(mediaType = MediaType.APPLICATION_JSON))
     public Response GetAllCustomers(){
-        List<Customer> list=this.customerService.getAll();
+        List<CustomerDto> list=this.customerService.getAll();
         return Response.ok(list).build();
     }
 

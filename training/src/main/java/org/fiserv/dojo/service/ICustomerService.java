@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface ICustomerService {
     List<Customer> findByFirstName(String firstName);
-    List<Customer> getAll();
+    List<CustomerDto> getAll();
     Optional<Customer> getById(Long id);
     Customer add(CustomerDto customer);
     Customer update(Long id,CustomerDto customer);

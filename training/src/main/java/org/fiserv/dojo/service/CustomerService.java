@@ -5,11 +5,13 @@ import jakarta.inject.Inject;
 import org.fiserv.dojo.Exception.CustomBadRequestException;
 import org.fiserv.dojo.domain.Customer;
 import org.fiserv.dojo.dto.CustomerDto;
+import org.fiserv.dojo.mappers.CustomerMapper;
 import org.fiserv.dojo.repository.CustomerRepository;
 import org.fiserv.dojo.repository.ICustomerRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class CustomerService implements ICustomerService {
@@ -19,8 +21,9 @@ public class CustomerService implements ICustomerService {
         return customerRepository.findByFirstName(firstName);
     }
 
-    public List<Customer> getAll(){
-        return customerRepository.getAll();
+    public List<CustomerDto> getAll(){
+        //return customerRepository.getAll().stream().map(t-> CustomerMapper.getDto(t)).collect(Collectors.toList());
+        return customerRepository.getAll().stream().map(CustomerMapper::getDto).collect(Collectors.toList());
     }
 
     @Override
