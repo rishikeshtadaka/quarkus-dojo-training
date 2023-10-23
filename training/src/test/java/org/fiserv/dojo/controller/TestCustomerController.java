@@ -28,7 +28,13 @@ public class TestCustomerController {
     @Test
     @Order(2)
     void GetCustomerById(){
-
+        given()
+                .when()
+                .get("/customers/1")
+                .then()
+                .body("id",equalTo(1))
+                .body("firstName",equalTo("fn-1"))
+                .statusCode(Response.Status.OK.getStatusCode());
     }
 
 

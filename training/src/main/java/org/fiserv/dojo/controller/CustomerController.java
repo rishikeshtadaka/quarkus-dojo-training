@@ -57,11 +57,7 @@ public class CustomerController {
             @RequestBody(description = "Create a customer",required = true,content = @Content(schema=@Schema(implementation = CustomerDto.class)))
             CustomerDto customerDto){
         log.info("Creating new Customer");
-        Customer customer=new Customer();
-        customer.FirstName=customerDto.getFirstName();
-        customer.LastName=customerDto.getLastName();
-        customer.Address=customerDto.getAddress();
-        this.customerService.add(customer);
+        Customer customer=this.customerService.add(customerDto);
         if(customer.isPersistent())
             return Response.created(URI.create("/customers"+customer.id)).build();
         return Response.status(Response.Status.BAD_REQUEST).build();
@@ -77,13 +73,7 @@ public class CustomerController {
             CustomerDto customerDto,
             @PathParam("id") Long id){
         log.info("Updating new Customer");
-        Optional<Customer> customer=this.customerService.getById(id);
-        if(customer.isEmpty())
-            throw new CustomBadRequestException();
-        customer.get().FirstName =customerDto.getFirstName();
-        customer.get().LastName=customerDto.getLastName();
-        customer.get().Address=customerDto.getAddress();
-        this.customerService.update(customer.get());
+        Customer customer=this.customerService.update(id,customerDto);
         return Response.status(Response.Status.OK).entity(customer).build();
     }
 
@@ -95,9 +85,7 @@ public class CustomerController {
     public Response DeleteCustomer(
             @PathParam("id") Long id){
         log.info("Deleting Customer");
-        boolean isDeleted=this.customerService.delete(id);
-        if(isDeleted)
-            return Response.status(Response.Status.OK).build();
-        return Response.status(Response.Status.NO_CONTENT).build();
+        this.customerService.delete(id);
+        return Response.status(Response.Status.OK).build();
     }
 }
