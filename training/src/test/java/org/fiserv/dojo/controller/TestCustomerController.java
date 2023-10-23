@@ -6,6 +6,7 @@ import org.junit.jupiter.api.*;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItems;
 
 @QuarkusTest
 @Tag("Integration")
@@ -18,7 +19,9 @@ public class TestCustomerController {
                 .when()
                 .get("/customers")
                 .then()
-                .body("size()",equalTo(0))
+                .body("size()",equalTo(1))
+                .body("id",hasItems(1))
+                .body("firstName",hasItems("fn-1"))
                 .statusCode(Response.Status.OK.getStatusCode());
     }
 
