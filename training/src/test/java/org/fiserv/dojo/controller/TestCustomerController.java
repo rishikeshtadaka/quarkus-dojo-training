@@ -81,5 +81,11 @@ public class TestCustomerController {
                 .delete("/customers/1")
                 .then()
                 .statusCode(Response.Status.OK.getStatusCode());
+
+        given()
+                .when()
+                .get("/customers/1")
+                .then()
+                .statusCode(Response.Status.NO_CONTENT.getStatusCode());
     }
 }
