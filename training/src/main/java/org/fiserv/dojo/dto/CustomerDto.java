@@ -1,5 +1,6 @@
 package org.fiserv.dojo.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CustomerDto {
+    @NotBlank(message = "Fistname should not be blank")
     private String FirstName;
     private String LastName;
     private String Address;

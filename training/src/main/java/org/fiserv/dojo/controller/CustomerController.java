@@ -2,6 +2,8 @@ package org.fiserv.dojo.controller;
 
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validator;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -21,6 +23,8 @@ import org.jboss.logging.Logger;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Path("/customers")
 @Tag(name="Customers", description = "Customer operations")
@@ -28,6 +32,9 @@ public class CustomerController {
     private static final Logger log = Logger.getLogger(CustomerController.class);
     @Inject
     private ICustomerService customerService;
+
+    @Inject
+    private Validator validator;
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Get Customer", description = "Get All Customers list")
@@ -57,6 +64,11 @@ public class CustomerController {
             @RequestBody(description = "Create a customer",required = true,content = @Content(schema=@Schema(implementation = CustomerDto.class)))
             CustomerDto customerDto){
         log.info("Creating new Customer");
+        Set<ConstraintViolation<CustomerDto>> constraintViolations =this.validator.validate(customerDto);
+        if(!constraintViolations.isEmpty()){
+            String messages=constraintViolations.stream().map(v->v.getMessage()).collect(Collectors.joining(", "));
+            return Response.status(Response.Status.BAD_REQUEST).entity(messages).build();
+        }
         Customer customer=this.customerService.add(customerDto);
         if(customer.isPersistent())
             return Response.created(URI.create("/customers"+customer.id)).build();
